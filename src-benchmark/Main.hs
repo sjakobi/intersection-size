@@ -15,7 +15,7 @@ genIntMaps seed size = let MkGen gen = arbitrary in gen (mkQCGen seed) size
 
 main :: IO ()
 main = defaultMain
-    [ env (pure (genIntMaps 42 100000)) (\ms -> bgroup "intersectionSize"
+    [ env (pure (genIntMaps 41 10000)) (\ms -> bgroup "intersectionSize"
           [ bench "naive" (benchMany intersectionSizeNaive ms)
           , bench "mergeA" (benchMany intersectionSize ms)
           , bench "internal" (benchMany intersectionSizeInternal ms)
